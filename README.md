@@ -6,13 +6,19 @@ Clinked aims to provide a modern and easy-to-use interface for linked-lists. At 
 
 # Example 
 ~~~~
-struct node *list = processlist(argc, argv);
-printf("Displaying list items\n");
-maplist(&displayitem, list);
-printf("Searching the string 'test' in the list\n");
-maplistarg(&searchitem, "test", list);
-maplist(&freeitem, list);
+#include "../clinked.c" //clinked.c should be in the same folder as your code
+
+int main(int argc, char *argv[]) {
+  argc < 2 ? fatalerror("You must enter at least 1 item as argument")
+    : printf("Processing the list\n");
+  printf("Displaying list items\n");
+  struct node *list = processsublist(1, argc, argv); // ignoring first argument
+  maplist(&displayitem, list);
+  printf("Searching the string 'test' in the list\n");
+  maplistarg(&searchitem, "test", list);
+  maplist(&freeitem, list);
+  return 0;
+}
 ~~~~
 
-There is still a lot to do, this is the first initial commit.
-Feel free to submit patches :).
+There is still a lot to do, feel free to submit patches :).
