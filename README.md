@@ -6,13 +6,13 @@ Clinked aims to provide a modern and easy-to-use interface for linked-lists. At 
 
 # Example 
 ~~~~
-#include "../clinked.c" //clinked.c should be in the same folder as your code
+#include "clinked.c" 
 
 int main(int argc, char *argv[]) {
   argc < 2 ? fatalerror("You must enter at least 1 item as argument")
     : printf("Processing the list\n");
   printf("Displaying list items\n");
-  struct node *list = processsublist(1, argc, argv); // ignoring first argument
+  struct node *list = processsublist(1, argc, argv); 
   maplist(&displayitem, list);
   printf("Searching the string 'test' in the list\n");
   maplistarg(&searchitem, "test", list);
